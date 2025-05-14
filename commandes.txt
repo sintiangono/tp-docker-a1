@@ -1,0 +1,14 @@
+mkdir tp-docker-a1
+cd tp-docker-a1
+git init
+echo "__pycache__" > .gitignore
+touch Dockerfile
+touch app.py
+touch requirements.txt
+docker build -t ngono-flask-app .
+docker images
+docker login
+docker tag ngono-flask-app sintia2/ngono-flask-app
+docker push sintia2/ngono-flask-app
+docker run -d -p 5000:5000 ngono-flask-app
+docker ps
